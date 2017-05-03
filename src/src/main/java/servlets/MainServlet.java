@@ -16,17 +16,20 @@ public class MainServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        //resp.setContentType("text/html");
-        //PrintWriter out = resp.getWriter();
-        //out.print("<h1>Hello Servlet</h1>");
+
         req.setAttribute("name", "Andrew");
         req.getRequestDispatcher("indexxx.jsp").forward(req, resp);
-        // Set error code and reason.
-        //resp.sendError(407, "Need authentication!!!" );
+        String getm=req.getParameter("first_name");
+        System.out.println(getm);
+        if (getm.equals("fs")) {
+            //resp.sendRedirect("welcome.jsp");
+            req.getRequestDispatcher("/welcome.jsp").forward(req, resp);
+            System.out.println("redirect");
+        }
     }
     // Method to handle POST method request.
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request, response);
+        //doGet(request, response);
     }
 }
