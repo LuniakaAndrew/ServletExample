@@ -19,13 +19,9 @@ public class MainServlet extends HttpServlet {
 
         req.setAttribute("name", "Andrew");
         req.getRequestDispatcher("indexxx.jsp").forward(req, resp);
+
         String getm=req.getParameter("first_name");
         System.out.println(getm);
-        if (getm.equals("fs")) {
-            //resp.sendRedirect("welcome.jsp");
-            req.getRequestDispatcher("/welcome.jsp").forward(req, resp);
-            System.out.println("redirect");
-        }
     }
     // Method to handle POST method request.
     public void doPost(HttpServletRequest request, HttpServletResponse response)

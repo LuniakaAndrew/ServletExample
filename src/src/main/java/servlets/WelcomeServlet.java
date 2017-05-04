@@ -11,21 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/welcome")
+@WebServlet("/HelloForm")
 public class WelcomeServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-       // req.setAttribute("hy", "Hy");
-        //req.getRequestDispatcher("welcome.jsp").forward(req, resp);
+        req.setAttribute("hy", "Hy");
+        req.getRequestDispatcher("welcome.jsp").forward(req, resp);
+
         // Set response content type
-        resp.setContentType("text/html");
-
+       // resp.setContentType("text/html");
         // New location to be redirected
-        String site = new String("http://www.photofuntoos.com");
+        //String site = new String("http://www.photofuntoos.com");
 
-        resp.setStatus(resp.SC_MOVED_TEMPORARILY);
-        resp.setHeader("Location", site);
+        //resp.setStatus(resp.SC_MOVED_TEMPORARILY);
+        //resp.setHeader("Location", site);
     }
     // Method to handle POST method request.
     public void doPost(HttpServletRequest request, HttpServletResponse response)
